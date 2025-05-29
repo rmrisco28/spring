@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>list</h1>
+<hr>
+<h2 th:each="item :${aiList}" th:text="${item}">Optio!</h2>
+<hr>
+<h2 th:each="elem: ${mySet}" th:text="${elem}"></h2>
+
+<hr>
+<h2 th:each="item :${aiList}" >
+<!--    span  자식 클래스가 있을 수 있는상황-->
+    <span th:text="${item}"> 여기는 span </span>
+</h2>
+
+
+</body>
+</html>

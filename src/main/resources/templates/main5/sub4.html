@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="${attr}">Lorem</h1>
+
+<hr>
+<!--attr. 이후 키 이름을 작성-->
+<h1 th:text="${attr.name}">Lorem.</h1>
+<h1 th:text="${attr.age}">Libero?</h1>
+<h1 th:text="${attr.address}">Officiis.</h1>
+<!--<h1 th:text="${attr.1 my info}">Officiis.</h1>-->
+<!-- 띄어쓰기가 있기 때문에 어려움. -->
+<hr>
+<!--attr. 네모괄호로 쓰는방법-->
+<h1 th:text="${attr['name']}">Lorem.</h1>
+<h1 th:text="${attr['age']}">Libero?</h1>
+<h1 th:text="${attr['address']}">Officiis.</h1>
+<!-- 띄어쓰기 있어도 대괄호로 감싸는건 가능-->
+<h1 th:text="${attr['1 my info']}">Officiis.</h1>
+</body>
+</html>

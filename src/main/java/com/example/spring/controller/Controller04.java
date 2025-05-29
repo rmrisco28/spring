@@ -1,6 +1,7 @@
 package com.example.spring.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -56,7 +57,7 @@ public class Controller04 {
     @RequestMapping("sub3")
     public String sub3() {
 
-        // html 쓰기 어려우니, ty
+        // html 쓰기 어려우니, thymeleaf
 
         // 3. html 코드 응답
         // thymeleaf html 파일 위치
@@ -75,4 +76,48 @@ public class Controller04 {
         return "main4/sub4";
     }
 
+    @RequestMapping("sub5")
+    public String sub5(Model model) {
+        // 1. 요청 분석/가공
+        // 2. 요청 처리(business logic)
+
+        // 3. 결과를 Modle에 담기
+        model.addAttribute("name1", "결과 값1");
+        model.addAttribute("name2", "결과 값2");
+        // 모델이라는 포스팃에 내용을 적어 놓은 것.
+
+        // 4. view로 forwarding
+
+        return "main4/sub5";
+    }
+
+    // 연습
+    // /main4/sub6으로 요청이 오면
+    // .../templataes/main4/sub6..html에 응답이 되도록
+    // request handler method 작성
+    @RequestMapping("sub6")
+    public String sub6(Model model) {
+        // model attribute: model에 넣어놓은 값(객체)
+        model.addAttribute("name", "이름"); // model name, model attribute
+        model.addAttribute("address", "seoul");
+        model.addAttribute("email", "gmail");
+        return "main4/sub6";
+    }
+
+    @RequestMapping("sub7")
+    public String sub7(Model model) {
+        model.addAttribute("age", 55);
+        model.addAttribute("score", 97.54);
+        model.addAttribute("school", "서울대");
+        model.addAttribute("city", "신림동");
+
+        return "main4/sub7";
+    }
+
+    @RequestMapping("sub8")
+    public String sub8(Model model) {
+        model.addAttribute("number", 12345678);
+        return "main4/sub8";
+    }
+    // 기본타입 말고 참조타입들은 어떻게 꺼내서 쓸 수 있는지 오후에 배울 예정
 }

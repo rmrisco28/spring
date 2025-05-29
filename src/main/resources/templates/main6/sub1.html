@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>list</h1>
+<h2 th:text="${list[0]}">Lorem.</h2>
+<h2 th:text="${list[1]}">Necessitatibus.</h2>
+<h2 th:text="${list[2]}">Autem.</h2>
+
+
+<hr>
+<h1>set</h1>
+<h2 th:text="${cars[0]}">Lorem.</h2>
+<h2 th:text="${cars[1]}">Ipsum?</h2>
+<h2 th:text="${cars[2]}">Earum.</h2>
+
+<hr>
+<!--hr:each-->
+<h1>Set 에서 each 사용</h1>
+<h2 th:each="car:${cars}" th:text="${car}">Lorem.</h2>
+<!--첫번째 cars가 car에 들어가서 출력 * 3회 -->
+<!-- car에 들어있는 값을 text를 통해서 반복-->
+<hr>
+<h1>List에서 each 사용</h1>
+<h2 th:each="item: ${list}" th:text="${item}"> Lorem.</h2>
+
+
+</body>
+</html>
