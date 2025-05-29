@@ -85,9 +85,7 @@ public class Controller04 {
         model.addAttribute("name1", "결과 값1");
         model.addAttribute("name2", "결과 값2");
         // 모델이라는 포스팃에 내용을 적어 놓은 것.
-
         // 4. view로 forwarding
-
         return "main4/sub5";
     }
 
