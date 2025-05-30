@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--주소에 쿼리스트링 (request parameter들) 붙이기-->
+<a href="" th:href="@{/main8/sub2(abc='def',qwe='xyz')}">링크1</a>
+<a href="" th:href="'/main8/sub2?abc=def&qwe=xyz'">링크1</a>
+
+<hr>
+
+<!--경로 작성시에도 @{} 를 사용하자 -->
+<img src="../../static/images/bear.jpg" alt="" th:src="@{/images/bear.jpg}">
+<img src="../../static/images/bear.jpg" alt="" th:src="'/images/bear.jpg'">
+
+<!-- 결론, 주소 작성시 @{} 내에 작성하기-->
+<a href="/main8/sub2" th:href="@{/main8/sub2}"> 링크4</a> <!--@로 주소를 줘야, 정확한 주소가 만들어진다.-->
+<a href="/main8/sub2" th:href="'/main8/sub2'"> 링크3</a>
+<a href="/main8/sub2">링크</a><!--이렇게 쓰는 경우가 더 많음. 유연한 코딩-->
+<a href="http://localhost:8080/main8/sub2"> 링크2</a>
+<a href="https://www.naver.com">1</a>
+
+</body>
+</html>

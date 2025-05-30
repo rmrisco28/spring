@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .pink {
+            background-color: pink;
+        }
+
+        .gray {
+            background-color: gray;
+        }
+
+        .big-text {
+            font-size: 3em;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+    </style>
+</head>
+<body>
+<table>
+
+    <thead>
+    <tr>
+        <th>번호</th>
+        <th>무게</th>
+        <th>정보</th>
+        <th>결혼</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="s : ${student}">
+        <td th:text="${s.studentNumber}"></td>
+        <td th:text="${s.weight}"></td>
+        <td th:text="${s.info}"></td>
+        <td class="italic" th:text="${s.married}" th:classappend="${s.married} ? 'pink' : 'gray'" ></td>
+    </tr>
+    </tbody>
+</table>
+
+<!--th:attrappen: 기존값에 이어쓰기-->
+<h3 class="big-text" th:classappend="' pink'">lorme1</h3>
+<!--띄어쓰기를 꼭해줘야하고. 클래스를 이어쓰는 경우가 많아서 classappend를 사용함.-->
+<h3 class="big-text" th:attrappend="class=' pink'">lorme1</h3> <!--두개의 클래스가 그대로 있으면 좋겠을때-->
+<h3 class="big-text" th:class="pink">lorme1</h3>
+
+<h3 title="hello" th:attrappend="title='bye'"> Lorem1</h3>
+
+<table>
+    <thead>
+    <tr>번호</tr>
+    <tr>몸무게</tr>
+    <tr>이름</tr>
+    <tr>결혼</tr>
+    </thead>
+    <tbody>
+    <tr th:each="student: ${student}">
+        <td th:text="${student.studentNumber}"></td>
+        <td th:text="${student.weight}"></td>
+        <td th:text="${student.info}"></td>
+        <td th:text="${student.married}"
+            th:class="${student.married} ? 'pink' : 'gray'"></td>
+    </tr>
+    </tbody>
+</table>
+
+
+<!--연습: tiger.jpg 출력-->
+<img src="../../static/images/tiger.jpg" alt="호랑이"
+     th:src="@{/images/tiger.jpg}" th:alt="호랑이">
+
+<hr>
+<!--
+자주 사용되는 atturibute를 적용하는 th:xxx 속성이 있음
+-->
+
+<!--같은 element가 있다면 덮어씌운다.-->
+<!--왜 굳이 한번쓰고 또 바꾸냐, 초기 값 이후 변경됐을경우 사용.-->
+<!--실제 렌더링되는값과 다르다-->
+<img src="../../static/images/shark.jpg" alt="상어" th:src="@{/images/shark.jpg}" th:alt="상어">
+<h3 title="hello"
+    th:class="xyz"
+    th:title="bye"
+    th:attr="abc='def'">lorem1</h3>
+
+<!-- html element의 attribute를 적용하는 방법-->
+<!--얘는 자주 사용되지않음-->
+<h3 title="hello" th:attr="class = 'xyz'">lorem1</h3>
+<h3 title="hello" th:attr="class = 'xyz', abc='def', title='bye'">lorem1</h3>
+<hr>
+<h3 th:text="'hello'">lorem</h3>
+t</thead></body>
+</html>

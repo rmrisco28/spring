@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1></h1>
+<ul th:object="${person}">
+    <li th:each="c,stat : *{company}">회사[[${stat.count}]] : [[${c}]]</li>
+</ul>
+
+<ul th:object="${person}">
+    <li th:each="a, stat : *{address}">주소[[${stat.count}]]: [[${a}]]</li>
+</ul>
+
+<!--expression inlining-->
+<h1>넘버 : [[${person.number}]]</h1>
+
+<h1 th:text="'넘버 : '+${person.number} "></h1>
+<h1>넘버 :
+    <span th:text="${person.number}"></span>
+</h1>
+</body>
+</html>

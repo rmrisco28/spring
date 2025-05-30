@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <th>번호</th>
+    <th>무게</th>
+    <th>이름</th>
+    <th>결혼</th>
+    </thead>
+    <tbody>
+    <tr th:each="student : ${student}">
+        <th:block th:object="${student}">
+            <td th:text="*{studentNumber}"></td>
+            <td th:text="*{weight}"></td>
+            <td th:text="*{info}"></td>
+            <td>
+                <span th:if="*{married}">❤️</span>
+                <span th:unless="*{married}">💔</span>
+
+            </td>
+        </th:block>
+    </tr>
+    </tbody>
+</table>
+
+
+<!--th:if: true이면-->
+
+<!--th:unless: false이면-->
+<h1 th:if="${married}">Lorem.</h1> <!--출력 안됨. -->
+<h1 th:if="${!married}">Ipsa!</h1>
+<h1 th:unless="${married}">Sed?</h1>
+<h1 th:unless="${working}">Sunt.</h1>
+
+<h1>
+    <span th:if="${name == null}">이름없음</span>
+    <span th:unless="${name == null}" th:text="${name}"></span>
+</h1>
+
+<h1>
+    <span th:if="${city == null}">주소없음</span>
+    <span th:unless="${city == null}" th:text="${city}"></span>
+</h1>
+
+<hr>
+
+<!--(operation token(no-op): 아무 연산 안함. 없음-->
+<h1>Lorem ipsum dolor.</h1>
+<h1 th:text="${name}">Lorem ipsum dolor.</h1>
+<h1 th:text="_">Lorem ipsum dolor.</h1>
+<h1 th:text="${name} ?: _">이름 없음</h1>
+<h1 th:text="${city} ?: _">회사 없음</h1>
+
+
+</body>
+</html>

@@ -9,6 +9,6 @@ import java.util.List;
 @AllArgsConstructor
 public class MyBean055 {
     private Integer number;
-    private List<String> address;
     private List<String> company;
+    private List<String> address;
 }

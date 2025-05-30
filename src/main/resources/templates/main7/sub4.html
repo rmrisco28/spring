@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<!-- 복습
+<ul th:object="${person}">
+    <h3>company</h3>
+    <li th:each="a : *{company}" th:text="${a}"></li>
+    <h3>address</h3>
+    <li th:each="a : *{address}" th:text="${a}"></li>
+</ul>
+-->
+
+
+<!--연습: person 객체를 selection문법을 활용해서 보여주기-->
+<ul th:object="${person}">
+    <!--    <li th:text="*{number}"></li>-->
+    <h4> company </h4>
+    <li th:each="c : *{company}" th:text="${c}"></li>
+
+    <h4> company </h4>
+    <li th:each="c : *{address}" th:text="${c}"></li>
+</ul>
+
+<hr>
+<!--selection 문법-->
+<ul th:object="${item} "> <!--아래와 같은 내용이 된다.-->
+    <li th:text="*{ai}"></li>
+    <li th:text="*{date}"></li>
+    <li th:text="*{price}"></li>
+</ul>
+
+<ul> <!--item이란 단어가 반복되는게 싫다?-->
+    <li th:text="${item.ai}"></li>
+    <li th:text="${item.date}"></li>
+    <li th:text="${item.price}"></li>
+</ul>
+</body>
+</html>

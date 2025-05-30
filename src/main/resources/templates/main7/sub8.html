@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--산술연산-->
+<!--비교연산-->
+<!--person.number는 98-->
+<h1 th:text="${person.number > 100}"></h1>
+<h1 th:text="${person.number < 100}"></h1>
+<h1 th:text="${person.number >= 100}"></h1>
+<h1 th:text="${person.number <= 100}"></h1>
+<h1 th:text="${person.number == 100}"></h1>
+<h1 th:text="${person.number != 100}"></h1>
+<!--두개는 같다.-->
+<hr>
+<!--텍스트로 -->
+<h1 th:text="${person.number gt 100}"></h1>
+<h1 th:text="${person.number lt 100}"></h1>
+<h1 th:text="${person.number ge 100}"></h1>
+<h1 th:text="${person.number le 100}"></h1>
+<h1 th:text="${person.number eq 100}"></h1>
+<h1 th:text="${person.number ne 100}"></h1>
+<hr>
+
+<!--조건연산 삼항연산-->
+<h1 th:text="${person.number> 100 ? '100보다 큼': '100보다 크지 않다.'}"></h1>
+<!--삼항연산자를 중괄호 밖에 쓸 수 있다.-->
+<h1 th:text="${person.number> 100} ?'100보다 큼': '100보다 크지 않다.'"></h1>
+<!--조건연산의 중괄호 바깥에서는 false부분을 생략할 수 있다.-->
+<h1 th:text="${person.number> 100} ?'100보다 큼'"></h1>
+<!--?: 하고 false일경우 출력-->
+<h1 th:text="${person.number> 100} ?:'100보다 큼'"></h1>
+
+<!--default expression (?:): 값이 없으면 (null)이면 기본값을 사용-->
+<h1 th:text="${person.company[0]} ?: '회사없음'"></h1> <!--tesla-->
+<h1 th:text="${person.company[2]} ?: '회사없음'"></h1> <!--null인경우-->
+
+</body>
+</html>

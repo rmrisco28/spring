@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{main8/layout :: page-head('sub5 페이지',~{::style})}">
+    <style>
+        h1 {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<!--
+코드 조각 사용시 값 전달
+-->
+<div th:replace="~{main8/layout :: side-bar('hello')}"></div>
+
+<!--코드 조각 적용시
+th:replace: 현재 요소 교체
+th:insert: 현재 요소 내에 삽입 div안에 div가 생김.
+-->
+
+<!--~{}: 코드 조각 정보-->
+<div th:insert="~{main8/layout :: navbar}"></div>
+<div th:replace="~{main8/layout :: navbar}"></div>
+
+<h1>sub5</h1>
+
+<div th:replace="~{main8/layout :: footer}"></div>
+
+</body>
+</html>

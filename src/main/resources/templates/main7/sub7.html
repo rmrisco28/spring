@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--산술연산 +, -, *, / ,%-->
+<h1 th:text="${person.number - 5}"></h1>
+<h1 th:text="${person.number + 5}"></h1>
+<h1 th:text="${person.number * 5}"></h1>
+<h1 th:text="${person.number / 5}"></h1>
+<h1 th:text="${person.number % 5}"></h1>
+<h1 th:text="101+5"></h1>
+<h1 th:text="101/5"></h1>
+
+
+<!--number-->
+<h1 th:text="${person.number}"></h1>
+<h1 th:text="101+ '숫자는 괄호를 쓰지 않아도 된다'"></h1>
+
+<!--text는 '' 사용-->
+<h1 th:text="'텍스트 작성은 소괄호에 해야 출력된다.'"></h1>
+
+<hr>
+<h1 th:text="|회사 ${person.company}|"></h1>
+<h1>회사 [[${person.company[1]}]]</h1>
+<h1 th:text="${person.company[1]} + '회사'"></h1>
+<h1> 회사
+    <span th:text="${person.company[1]}"></span>
+</h1>
+<hr>
+
+<!--bar |-->
+<h1 th:text="|회사 ${person.company[0]}|"></h1>
+
+<!--문자열 연결-->
+<h1 th:text="'회사 ' + ${person.company[0]}"></h1>
+<h1>회사 [[${person.company[0]}]]</h1>
+<h1>회사
+    <span th:text="${person.company[0]}"></span>
+</h1>
+
+</body>
+</html>
