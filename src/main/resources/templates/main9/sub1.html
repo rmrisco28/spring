@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>main9/sub.html</h3>
+<a th:href="@{/main9/sub2(name='son',age=55,address='seoul')}">to /main9/sub2</a>
+<!-- 쿼리스트링 쓸 경우 소괄호 사용-->
+
+<!--타임리프 속성을 쓰는 장점
+동적으로 만들어지는데, 그냥 html을 열면 -->
+<br>
+<a th:href="@{/main9/sub3?email='yahoo'&married=true&city='seoul'&team='paris'}">to/main9/sub3</a>
+<!--링크를 클릭하면 /main9/sub3?eamil=yahoo&married=true&city=seoul&team=paris
+로 이동하면 a 요소를 만드세요
+
+Contrller09에 3번째 메소드를 만들어서 eamil,married city, team요청 파라미터를
+받아서출력하는 코드를 완성하세요
+-->
+
+</body>
+</html>

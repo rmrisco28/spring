@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3> /main9/sub4</h3>
+
+<form action="">
+    ctrl을 눌러 중복 선택하시오.
+    <br>
+    <!--연습: 여러 취미를 중복선택 가능한 select 요소로 작성해보기-->
+    <div>
+        <select name="hobby" id="" multiple required>
+            <option value="football">축구</option>
+            <option value="bolling" selected>볼링</option>
+            <option value="table_tennis">탁구</option>
+            <option value="swim">수영</option>
+            <option value="cook">요리</option>
+        </select>
+    </div>
+    <hr>
+    <!--multiple 사용하면 ctrl로 중복 선택 가능-->
+    <!-- required 필수 선택-->
+    <div>
+        <select name="country" id="" multiple required>
+            <!--selected 우선 선택 해놓기-->
+            <option value="korea" selected>한국</option>
+            <option value="us">미국</option>
+            <option value="uk">영국</option>
+            <option value="japan">일본</option>
+            <option value="china">중국</option>
+        </select>
+    </div>
+    <br>
+
+    <!-- select: 여러 값 중 선택 가능한 요소-->
+    <!--페이지 처음 선택하고 싶은 경우, selected-->
+    <div>
+        <select name="fruit" id="">
+            <option value="apple">사과</option>
+            <option value="melon">멜론</option>
+            <option value="mango" selected>망고</option>
+            <option value="lemon">레몬</option>
+            <option value="banaba">바나나</option>
+        </select>
+    </div>
+    <div>
+        <input type="submit" 전송>
+    </div>
+</form>
+<hr>
+
+<form action="">
+    <div>
+        <!-- textarea : 긴 텍스트 작성용 -->
+        <textarea name="info3" id="" cols="30" rows="10"
+                  placeholder="정보 입력하세요"
+                  required
+                  readonly
+        ></textarea>
+    </div>
+    <div>
+        <!-- textarea : 긴 텍스트 작성용 -->
+        <textarea name="info2" id="" cols="30" rows="10">기본 텍스트 입력</textarea>
+    </div>
+    <div>
+        <!-- textarea : 긴 텍스트 작성용 -->
+        <textarea name="info" id="" cols="30" rows="10"></textarea>
+    </div>
+    <div>
+        <input type="text" name="city">
+    </div>
+    <div>
+        <input type="submit" value="전송 ">
+    </div>
+
+</form>
+
+<hr>
+
+<form th:action="@{/main9/sub13}">
+    <!-- request handler method를 보고 아래 input 요소들 만들기-->
+    <div>
+        1. 도시를 입력하세요.
+        <input type="text" name="city" placeholder="도시를 입력하세요.">
+    </div>
+    <div>
+        2. 나이를 입력하세요.
+        <input type="number" name="age" min="0" max="120">
+    </div>
+    <div>
+        3. 점수를 입력하세요.
+        <input type="number" name="score" min="0" max="100" step="0.1">
+    </div>
+    <div>
+        4. 선호하는 과일을 선택하세요. (중복 가능)
+        <div>
+            <input type="checkbox" name="fruits" id="check-banana" value="바나나">
+            <label for="check-banana">바나나</label>
+            <input type="checkbox" name="fruits" id="check-strawberry" value="딸기">
+            <label for="check-strawberry">딸기</label>
+            <input type="checkbox" name="fruits" id="check-orange" value="오렌지">
+            <label for="check-orange">오렌지</label>
+            <input type="checkbox" name="fruits" id="check-grape" value="포도">
+            <label for="check-grape">포도</label>
+            <input type="checkbox" name="fruits" id="check-watermellon" value="수박">
+            <label for="check-watermellon">수박</label>
+        </div>
+    </div>
+    <div>
+        5. 동의 여부를 선택하세요
+        <div>
+            <input type="radio" name="accepted" id="1" value="true">
+            <label for="1">동의</label>
+            <input type="radio" name="accepted" id="2" value="false">
+            <label for="2">동의안함</label>
+        </div>
+    </div>
+
+    <input type="submit">
+</form>
+<hr>
+<form action="">
+    <!-- required: 필수 입력-->
+    <input type="text" name="city" required>
+    <!-- multiple: 여러개 선택-->
+    <input type="file" name="f" id="" multiple>
+    <!--placeholder: 입력할 값의 hint-->
+    <input type="text" name="address" placeholder="주소를 입력하세요.">
+    <!-- readonly: 변경 불가-->
+    <input type="text" name="name" value="홍길동" readonly>
+    <input type="submit">
+</form>
+
+
+<form th:action="@{/main9/sub12}">
+    <!--연습: 3개의 contry 중에 하나만 선택할 수 있는 radio 버튼 만들기-->
+    <div>
+        <label for="radio-korea">한국</label>
+        <input type="radio" name="contry" id="radio-korea" value="한국" checked>
+        <label for="radio-usa">미국</label>
+        <input type="radio" name="contry" id="radio-usa" value="미국">
+        <label for="radio-japan">일본</label>
+        <input type="radio" name="contry" id="radio-japan" value="일본">
+    </div>
+
+    <div>
+        <!--radio button: 같은 name중에 하나의 값만 선택 가능-->
+        <!--라디오는 체크 같은 이름을 가진 경우가 많음-->
+        <label for="radio-mango">망고</label>
+        <input type="radio" name="fruit" id="radio-mango" value="mango">
+        <label for="radio-melon">멜론</label>
+        <input type="radio" name="fruit" id="radio-melon" value="melon" checked>
+        <label for="radio-apple">사과</label>
+        <input type="radio" name="fruit" id="radio-apple" value="apple">
+    </div>
+    <input type="submit" value="전송">
+</form>
+
+
+<form th:action="@{main9/sub11}">
+    <!-- label 특징: input 붙인 텍스트-->
+    <!--텍스트를 클릭해도, 체크가 되도록 설정-->
+    <label for="input-mango">
+        망고
+    </label>
+    <input type="checkbox" name="fruit" id="input-mango" value="mango">
+
+    <!--연습: 멜론, 사과도 label로 만들기-->
+    <label for="input-melon">
+        멜론
+    </label>
+    <input type="checkbox" name="fruit" id="input-melon" value="melon">
+
+    <label for="input-apple">
+        사과
+    </label>
+    <input type="checkbox" name="fruit" id="input-apple" value="apple">
+
+    <!-- 라벨 안에 체크박스를 넣는 경우도 있음.-->
+    <label>
+        바나나
+        <input type="checkbox" name="fruit" value="banana">
+    </label>
+
+    <div>
+        <label for="input-text">
+            이름
+        </label>
+        <input type="text" id="input-text" name="name" value="머스크">
+    </div>
+
+</form>
+
+<hr>
+<!--자주 쓰는 요소들-->
+<form thaction="@{/main9/sub10">
+    <!-- 연습: 체크하면 hello라는 값이 넘어갈 수 있는 checkbox 만들기-->
+    <!-- checkd를 통해 기본 체크표시를 설정 할 수 있다.-->
+    <div>
+        <input type="checkbox" name="hobby" value="baseball">
+        야구
+        <input type="checkbox" name="hobby" value="basketball">
+        농구
+        <input type="checkbox" name="hobby" value="football">
+        축구
+        <input type="checkbox" name="hobby" value="rugby">
+        럭비
+        <input type="checkbox" name="hobby" value="cook">
+        요리
+    </div>
+
+    <div>
+        <input type="checkbox" name="check" value="hello" checked>
+    </div>
+
+    <div>
+        <!--checkbox-->
+        <!--기본 value 값은 on, 체크 안할 경우 값 안넘어감
+        value로 기본값 변경 가능
+        -->
+        <input type="checkbox" name="accept" value="true">
+    </div>
+
+    <div>
+        <input type="submit" value="전송">
+    </div>
+
+</form>
+
+<hr>
+
+<form th:action="@{/main9/sub9}">
+    <div>
+        <!-- 숨겨진 input 요소-->
+        <!--사용자에게 입력받기는 싫고, 값은 보내야 하는 경우 사용-->
+        <input type="hidden" name="h" value="숨겨진 값">
+    </div>
+
+    <div>
+        <!--file field-->
+        <input type="file" name="f">
+    </div>
+
+    <div>
+        <!-- email 형식-->
+        <input type="email" name="mail">
+    </div>
+
+    <div>
+        <!--날짜 시간 동시에 입력-->
+        <input type="datetime-local" name="start">
+    </div>
+
+    <div>
+        <!--날짜-->
+        <input type="date" name="birth">
+    </div>
+
+    <div>
+        <!-- password field-->
+        <input type="password" name="pw">
+    </div>
+
+    <div>
+        <!--text field-->
+        <input type="text" name="name">
+    </div>
+    <div>
+        <!--number field-->
+        <input type="number" min="0" max="10" step="0.1" name="score">
+    </div>
+    <div>
+        <!--submit 버튼-->
+        <input type="submit">
+    </div>
+
+</form>
+
+
+<hr>
+<form th:action="@{/main9/sub8}">
+    <!-- value 속성: 기본값을 적용-->
+    <input type="text" name="address" value="seoul">
+    <!--연습: input 요소 만들기-->
+    <!--name, age, 요청 파라미터 작성할 수 있는 input 요소 만들기-->
+    <!--name의 기본값은 홍길동, age의 기본값은 1-->
+    <input type="text" name="name" value="홍길동">
+    <input type="text" name="age" value="1">
+
+    <button> 저장</button>
+</form>
+
+<hr>
+
+<form th:action="@{/main9/sub7}">
+    <!--input 으로 만든 submit 버튼-->
+    <input type="submit">
+    <!--button으로 만든 submit 버튼-->
+    <button> 저장</button>
+    <!--그냥 버튼 들 (작동안함)-->
+    <input type="button" value="그냥1">
+    <button type="button">그냥2</button>
+</form>
+
+<hr>
+
+<!-- 연습, form 요소 만들어보기-->
+<!--submit 버튼을 클릭하면 /main9/sub5에 -->
+<!-- address, age, city 요청 파라미터가 전송될 수 있게  form 요소 만들 수 있게
+ /main9/sub5 의 요청경로에서 일하는 request handler method 만들기 -->
+
+<form th:action="@{/main9/sub6}">
+    <div>
+        <input type="text" name="address">
+    </div>
+    <div>
+        <input type="text" name="age">
+    </div>
+    <div>
+        <input type="text" name="city">
+    </div>
+    <div>
+        <input type="submit" value="입력">
+    </div>
+
+</form>
+
+
+<hr>
+<!--form 사용자가 입력한 내용을 쿼리스트링에 붙여서 요청을 보냄.-->
+<!--action 속성: 쿼리 스트링(request parameters)를 어디로 보낼 지 결정-->
+<form th:action="@{/main9/sub5}">
+    <!--   form 요소들(input, textarea, select): request parameter를 완성하는 요소-->
+    <!--    input-->
+    <!--    name 속성: request parameter의 이름-->
+    <div>
+        <input type="text" name="keyword">
+    </div>
+    <div>
+        <input type="text" name="email">
+    </div>
+
+    <div>
+        <!--    submit button: 클릭하면 form 내의 요소들로 쿼리스트링을 만들어서 action으로 요청 보냄-->
+        <!--value로 버튼 이름 변경-->
+        <input type="submit" value="저장">
+    </div>
+</form>
+
+</body>
+</html>
