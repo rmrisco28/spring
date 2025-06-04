@@ -19,7 +19,7 @@ public class Controller10 {
     public String sub2(String name, String city) {
         System.out.println("name = " + name);
         System.out.println("city = " + city);
-        
+
         return "main10/sub1";
     }
 
@@ -40,7 +40,7 @@ public class Controller10 {
         return "main10/sub3";
     }
 
-    //    @RequestMapping(value = "sub4", method = RequestMethod.GET)
+    //        @RequestMapping(value = "sub4", method = RequestMethod.GET)
     @GetMapping("sub4")    // 위 어노테이션이랑 같은 역할을한다.
     public String sub5(String name) {
         System.out.println("name = " + name);

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="display: flex; justify-content: space-around">
+    navbar
+    <div th:if="${session.userId == null }">
+        <a th:href="@{/main12/sub13}">로그인</a>
+    </div>
+    <div th:unless="${session.userId == null }">
+        <a th:href="@{/main12/sub13}">로그아웃</a>
+    </div>
+
+    <div th:unless="${session.userId == null}">
+        <div>
+            <span th:text="${session.userId}"></span>
+            님
+        </div>
+    </div>
+
+</div>
+
+<div th:if="${message != null}">
+    <p th:text="${message}"></p>
+</div>
+
+<h3>main page</h3>
+<p>페이지 컨텐츠</p>
+</body>
+</html>
