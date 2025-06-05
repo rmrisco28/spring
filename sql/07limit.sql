@@ -90,8 +90,8 @@ limit 2,1;
 # 연습: 1번 카테고리에서 두번째로 저렴한 상품명 조회
 SELECT *
 FROM Products
-WHERE CategoryID = 1
+WHERE ProductID = 1
 ORDER BY Price
-limit 1,1;
+# limit 1,1;
 
 

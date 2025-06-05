@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, tr, tr, td, th {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+<h3> 미국 영국 고객 명단</h3>
+
+<table>
+    <thead>
+    <tr>
+        <th>나라</th>
+        <th>도시</th>
+        <th>이름</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="list : ${countryList}">
+        <td th:text="${list[country]}"></td>
+        <td th:text="${list[city]}"></td>
+        <td th:text="${list[name]}"></td>
+
+    </tr>
+    </tbody>
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>직원 이름 목록</h3>
+<table>
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="name : ${nameList}">
+        <td th:text="${name['firstName']}"></td>
+        <td th:text="${name['lastName']}"></td>
+    </tr>
+    </tbody>
+</table>
+<hr>
+<ul>
+    <li th:each="name : ${nameList}">
+        <span th:text="${name.lastName}"></span>
+        <span th:text="${name.firstName}"></span>
+    </li>
+</ul>
+</body>
+</html>
