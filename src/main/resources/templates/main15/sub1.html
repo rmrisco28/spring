@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, tr, td, th {
+            border: 1px solid blue;
+            border-collapse: collapse;
+        }
+
+    </style>
+</head>
+<body>
+<h3>페이지별 고객 조회</h3>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>CONTACTNAME</th>
+        <th>ADDRESS</th>
+        <th>CITY</th>
+        <th>POSTALCODE</th>
+        <th>COUNTRY</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="customer : ${customersList}">
+        <td th:text="${customer.id}"></td>
+        <td th:text="${customer.name}"></td>
+        <td th:text="${customer.contactName}"></td>
+        <td th:text="${customer.address}"></td>
+        <td th:text="${customer.city}"></td>
+        <td th:text="${customer.postalCode}"></td>
+        <td th:text="${customer.country}"></td>
+    </tr>
+    </tbody>
+</table>
+<!-- 고객 수       마지막 페이지 번호-->
+<!-- 1~10명이면     1페이지     -->
+<!-- 11~20명이면    2페이지     -->
+<!-- 21~30명이면    3페이지     -->
+<!-- ... -->
+<!-- 91~100명이면    100페이지     -->
+<!--고객 수가 n명 이면 (n-1)/10+1-->  <!--integer 연산이라 소수점이 없음-->
+<!-- n은 어떻게 계산 할 수 있을까?-->
+
+<div>
+    <span th:each="num : ${#numbers.sequence(1, lastPage)}">
+        <a th:href="@{/main15/sub1(page=${num})}"
+           th:text="${num}"></a>
+        |
+    </span>
+</div>
+
+<!--<div>
+    <a th:href="@{/main15/sub1(page=1)}">1</a>
+    |
+    <a th:href="@{/main15/sub1(page=2)}">2</a>
+    |
+    <a th:href="@{/main15/sub1(page=3)}">3</a>
+    |
+    <a th:href="@{/main15/sub1(page=4)}">4</a>
+    |
+    <a th:href="@{/main15/sub1(page=5)}">5</a>
+</div>-->
+</body>
+</html>
