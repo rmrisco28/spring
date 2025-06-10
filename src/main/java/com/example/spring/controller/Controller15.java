@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.thymeleaf.exceptions.TemplateInputException;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("main15")
-public class Countroller15 {
+public class Controller15 {
     // paging
 
     @RequestMapping("sub1")
@@ -120,7 +119,7 @@ public class Countroller15 {
             supplierDto.setId(rs.getInt("SupplierID"));
             supplierDto.setName(rs.getString("SupplierName"));
             supplierDto.setAddress(rs.getString("Address"));
-            supplierDto.setContact(rs.getString("ContactName"));
+            supplierDto.setContactName(rs.getString("ContactName"));
             supplierDto.setCity(rs.getString("City"));
             supplierDto.setPostalCode(rs.getString("PostalCode"));
             supplierDto.setCountry(rs.getString("Country"));

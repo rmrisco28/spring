@@ -6,10 +6,10 @@ import lombok.Data;
 public class CustomerDto {
     private Integer id;
     private String name;
-    private String address;
-    private String postalCode;
-    private String city;
-    private String country;
     private String contactName;
+    private String address;
+    private String city;
+    private String postalCode;
+    private String country;
 
 }

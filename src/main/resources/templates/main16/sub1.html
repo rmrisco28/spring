@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, tr, td, th {
+            border: 1px solid blue;
+            border-collapse: collapse;
+        }
+
+    </style>
+</head>
+<body>
+<h3>새 고객 정보 입력</h3>
+<hr>
+<form th:action="@{/main16/sub1}" method="post">
+    <div>
+
+        <label>
+            고객명
+            <input type="text" name="name">
+        </label>
+
+    </div>
+    <div>
+
+        <label>
+            계약명
+            <input type="text" name="contactName">
+        </label>
+    </div>
+    <div>
+
+        <label>
+            주소
+            <input type="text" name="address">
+        </label>
+    </div>
+    <div>
+
+        <label>
+            도시
+            <input type="text" name="city">
+        </label>
+    </div>
+    <div>
+
+        <label>
+            우편번호
+            <input type="text" name="postalCode">
+        </label>
+    </div>
+    <div>
+        국가
+        <label>
+            <input type="text" name="country">
+        </label>
+    </div>
+    <div>
+        <button>
+            등록
+        </button>
+    </div>
+
+</form>
+
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>CONTACTNAME</th>
+        <th>ADDRESS</th>
+        <th>CITY</th>
+        <th>POSTALCODE</th>
+        <th>COUNTRY</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="customer : ${customerList}">
+        <td th:text="${customer.id}"></td>
+        <td th:text="${customer.name}"></td>
+        <td th:text="${customer.contactName}"></td>
+        <td th:text="${customer.address}"></td>
+        <td th:text="${customer.city}"></td>
+        <td th:text="${customer.postalCode}"></td>
+        <td th:text="${customer.country}"></td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

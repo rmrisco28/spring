@@ -816,7 +816,7 @@ public class Controller13 {
             SupplierDto dto = new SupplierDto();
             dto.setId(resultSet.getInt("SupplierID"));
             dto.setName(resultSet.getString("SupplierName"));
-            dto.setContact(resultSet.getString("ContactName"));
+            dto.setContactName(resultSet.getString("ContactName"));
             dto.setAddress(resultSet.getString("Address"));
             dto.setCity(resultSet.getString("City"));
             dto.setPostalCode(resultSet.getString("PostalCode"));

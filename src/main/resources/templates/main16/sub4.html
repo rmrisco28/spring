@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>공급자 정보 조회</h3>
+<hr>
+<form th:action="@{/main16/sub4}">
+    <label>
+        ID
+        <input type="number" name="id" th:value="${param.id}">
+    </label>
+    <button>검색</button>
+</form>
+<hr>
+<!--    div*8>label>input[readonly]-->
+<!--조회된 결과가 넘어왔다고 하면, 보여주는 내용을 작성-->
+
+<div th:if="${supplier == null}">
+    조회된 결과가 없습니다.
+</div>
+
+<div th:if="${supplier != null}" th:object="${supplier}">
+    <div>
+        <label>
+            ID
+            <input type="text" readonly th:value="*{id}">
+        </label>
+    </div>
+    <div>
+        <label>
+            이름
+            <input type="text" readonly th:value="*{name}">
+        </label>
+    </div>
+    <div>
+        <label>
+            거래명
+            <input type="text" readonly th:value="*{contactName}">
+        </label>
+    </div>
+    <div>
+        <label>
+            지역
+            <input type="text" readonly th:value="*{address}">
+        </label>
+    </div>
+    <div>
+        <label>
+            도시
+            <input type="text" readonly th:value="*{city}">
+        </label>
+    </div>
+    <div>
+        <label>
+            우편번호
+            <input type="text" readonly th:value="*{postalCode}">
+        </label>
+    </div>
+    <div>
+        <label>
+            국가
+            <input type="text" readonly th:value="*{country}">
+        </label>
+    </div>
+    <div>
+        <label>
+            번호
+            <input type="text" readonly th:value="*{phone}">
+        </label>
+    </div>
+
+    <button form="delete-form">삭제</button>
+
+    <div style="display: none">
+        <form th:action="@{/main16/sub4}" method="post" id="delete-form">
+            <input type="text" name="id" th:value="${supplier.id}">
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

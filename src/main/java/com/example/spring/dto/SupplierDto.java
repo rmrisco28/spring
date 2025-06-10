@@ -6,7 +6,7 @@ import lombok.Data;
 public class SupplierDto {
     private Integer id;
     private String name;
-    private String contact;
+    private String contactName;
     private String address;
     private String city;
     private String postalCode;

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>고객 정보 조회</h3>
+<hr>
+<form th:action="@{/main16/sub3}">
+    <label>
+        ID
+        <input type="number" name="id" th:value="${param.id}">
+    </label>
+    <button> 조회</button>
+</form>
+<hr>
+<!--조회된 결과가 넘어왔다고 하면, 보여주는 내용을 작성-->
+<div th:if="${customer==null}">
+    조회된 결과가 없습니다.
+</div>
+
+<div th:if="${customer != null}" th:object="${customer}">
+    <!--    div*7>label>input[readonly]-->
+    <div>
+        <label>
+            ID
+            <input type="text" readonly th:value="*{id}">
+        </label>
+    </div>
+    <div>
+        <label>
+            이름
+            <input type="text" readonly th:value="*{name}">
+        </label>
+    </div>
+    <div>
+        <label>
+            계약명
+            <input type="text" readonly th:value="*{contactName}">
+        </label>
+    </div>
+    <div>
+        <label>
+            주소
+            <input type="text" readonly th:value="*{address}">
+        </label>
+    </div>
+    <div>
+        <label>
+            도시
+            <input type="text" readonly th:value="*{city}">
+        </label>
+    </div>
+    <div>
+        <label>
+            우편번호
+            <input type="text" readonly th:value="*{postalCode}">
+        </label>
+    </div>
+    <div>
+        <label>
+            국가
+            <input type="text" readonly th:value="*{country}">
+        </label>
+    </div>
+
+    <div>
+        <!--        button이 밖에 있어도 동작하는 방법-->
+        <!-- form의 id와 button의 form의 id를 동일하게 하면된다.-->
+        <button form="delete">삭제</button>
+
+        <div style="display: none">
+            <form id="delete" method="post" th:action="@{/main16/sub3}">
+                <input type="text" name="id" th:value="${customer.id}">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
