@@ -1,6 +1,7 @@
 package com.example.spring.controller;
 
 import com.example.spring.dto.CustomerDto;
+import lombok.Data;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("preparation16")
@@ -52,7 +57,7 @@ public class Controllerx16 {
     }
 
     @PostMapping("sub1")
-    public String sub2(CustomerDto customerDto, RedirectAttributes rttr) throws Exception {
+    public String post1(CustomerDto customerDto, RedirectAttributes rttr) throws Exception {
         String sql = """
                 UPDATE Customers
                 SET CustomerName = ?,
@@ -81,6 +86,41 @@ public class Controllerx16 {
         rttr.addAttribute("id", customerDto.getId());
 
         return "redirect:/preparation16/sub1";
+    }
+
+    @Data
+    static class Dto6 {
+        private String name;
+        private LocalDate birth_date;
+        private Double score;
+        private LocalDateTime born_at;
+    }
+
+    @GetMapping("sub2")
+    public String sub2(Model model) throws Exception {
+        String sql = """
+                SELECT *
+                FROM table13
+                """;
+        String url = "jdbc:mysql://localhost:3306/mydatabase";
+        String username = "root";
+        String password = "1234";
+        Connection connection = DriverManager.getConnection(url, username, password);
+        PreparedStatement statement = connection.prepareStatement(sql);
+        ResultSet resultSet = statement.executeQuery();
+        var list = new ArrayList<Dto6>();
+        if (resultSet.next()) {
+            Dto6 dto6 = new Dto6();
+            dto6.setName(resultSet.getString("name"));
+            dto6.setBirth_date(resultSet.getDate("birth_date").toLocalDate());
+            dto6.setScore(resultSet.getDouble("score"));
+            dto6.setBorn_at(resultSet.getTimestamp("born_at").toLocalDateTime());
+            list.add(dto6);
+        }
+        model.addAttribute("list", list);
+
+        return "preparation16/sub2";
+
     }
 
 }

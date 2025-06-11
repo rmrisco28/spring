@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+
+</div>
+<hr>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>이름</th>
+            <th>날짜</th>
+            <th>점수</th>
+            <th>태어난 날짜</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="list :${list}">
+            <td th:text="${list.name}"></td>
+            <td th:text="${list.birth_date}"></td>
+            <td th:text="${list.score}"></td>
+            <td th:text="${list.born_at}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
