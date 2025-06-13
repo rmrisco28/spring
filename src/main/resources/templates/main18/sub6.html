@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, tr, td, th {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<p th:if="${message != null}" th:text="${message}">
+
+</p>
+<h3>트렌직션 연습</h3>
+
+<form th:action="@{/main18/sub7}" method="post">
+    <button>B가 A에게 500원 송금</button>
+</form>
+<hr>
+
+<table>
+    <thead>
+    <tr>
+        <th>사용자</th>
+        <th>잔액</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${list}">
+        <td th:text="${user.user}"></td>
+        <td th:text="${user.money}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
