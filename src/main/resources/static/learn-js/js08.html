@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    // 객체
+    // {} : 객체
+    // (속성명: 속성값) 쌍이 작성됨 (속성 = property)
+    const a = {};
+    const b = {address: "seoul", age: 55};
+    console.log(b)
+    b.age = 77;
+    b.address = "jeju";
+    console.log(b);
+    //  객체는 참조값으로 접근
+    const c = b;
+    console.log(c);
+    c.age = 99;
+    console.log(c);
+    console.log(c);
+    console.log(b);
+
+    // 연습
+    const d = {name: "son", number: 7};
+    const e = d;
+    e.name = "lee";
+
+    console.log(d.name); // lee
+
+
+    const f = {name: "kim", number: 13};
+    f.name = d.name;
+    f.number = d.number;
+
+    d.name = "park";
+    console.log(f.name); // lee
+
+    // 연습2
+    const g = {numbers: [2, 3], name: "choi"};
+    const h = {numbers: [], name: "park"};
+    h.numbers = g.numbers;
+    h.name = g.name;
+
+    g.name = "choi";
+    console.log(h.name); // choi
+
+    g.numbers[0] = 22;
+    console.log(h.numbers); // [22, 3] 배열의 참조값을 넣었기 때문에.
+
+    // react 는 배열, 객체를 복사.
+    // 원본은 두고 값을 사용한다.
+    // g의 값을 변경하더라도 h가 변하지 않도록 코드를 짠다.
+
+</script>
+
+</body>
+</html>

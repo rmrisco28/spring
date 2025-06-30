@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 단락평가(short circuit evaluation)
+
+    // &&, ||
+
+    // && : 둘다 true 일 때, true, 나머지 false
+    // true && true : true
+    // true && false : false
+    // false && true : false
+    // false && false : false
+
+    // 첫 항이 true 이면 두번째 항 연산함
+    let a = 10;
+    let b = 30;
+    let r1 = (a++) < 0 && (b++) < 100;
+    console.log(a, b); // 11 , 30
+    // 왜냐면 a++ 실행 11이 됐고 < 0이랑 비교했을때 거짓이기때문에 바로 sort 남.
+    let r2 = (a--) > 0 && (b++) < 100;
+    console.log(a, b, r2) // 10, 31, true
+
+    let r3 = (a++) < 0 && "hello";
+    console.log(r3);
+    let r4 = (a++) > 0 && "hi";
+    console.log(r4) // 값이 true false 가 아니라 hi가 됨.
+    // javascript 에는 truthy가 있음
+    // and 에는 그러면 이란 뜻 도 있다.
+    // 앞에가 true면 뒤에 것으로 판단 하겠다.
+    // 첫 항이 true 이면 두번재 항 연산결과가 최종 결과
+    // (and: if then)
+
+    // ||: 양 변이 둘다 false 일 때 false, 나머지는 true
+    // true || true: true
+    // true || false: true
+    // false || true: true
+    // false || false: false
+    // 첫번째 항이 false 이면, 두번째 항 연산 결과가 최종 결과.
+    // (or: if not)
+    let c = 5;
+    let r5 = c > 0 || "hi";
+    console.log(r5) // true
+    let r6 = c < 0 || "hello";
+    console.log(r6)
+
+
+    // or 에는 아니면 이란 뜻도 있다.
+    // ex) 너 먹어야해 or(아니면) 아플거야.
+</script>
+</body>
+</html>

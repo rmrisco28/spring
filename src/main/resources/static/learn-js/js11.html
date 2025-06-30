@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // spread로 객체 배열 복사 할 수 있지만,
+    // 얕은 복사 가 일어난다.?
+    const a = [4, 2, 1];
+    const b = [...a];
+    b[0] = 44;
+    console.log(b);
+    console.log(a); // 바뀌지 않는다.
+
+    // 그런데 문제 있는 코드
+    // 각 값이 또 다른 배열
+    const c = [[2, 3], [0, 1], [5, 6]];
+    const d = [...c];
+    d[0][0] = 22;
+    console.log(d);
+    console.log(c);
+
+    // 깊은 복사
+    const e = [[...c[0]], [...c[1]], [...c[2]]];
+    e[0][0] = 222;
+    console.log(e);
+    console.log(c);
+
+    // for
+    const f = [];
+    for (const item of c) {
+        f.push([...item]);
+    }
+    f[0][0] = -222;
+    console.log(f);
+    console.log(c);
+
+    // json 으로 바꾸고 -> 객체(배열) 로 파싱
+    const g = JSON.parse(JSON.stringify(c))
+    g[0][0] = -333;
+    console.log(g);
+    console.log(c);
+
+    // structuredClone(); // 깊은 복사해주는 메소드
+    // 자주 안보임 (새로 생겨서  brand new) 그렇지만, 곧 자주 쓰이게 될 예정
+    // 우리는 이 함수를 주로 사용 할 예정.
+    const h = structuredClone(c);
+    h[0][0] = -555;
+    console.log(h);
+    console.log(c);
+
+    console.log("----------연습----------")
+    // 연습
+    const i = [[9, 1], ["spring", "css"], "java"];
+    const j = structuredClone(i); // 코드 작성
+
+    console.log(j); // [[9,1], ["spring","css"],"java"]
+    j[1][0] = "boot";
+    console.log(i);
+    console.log(j);
+
+    // 객체 복사는 다음 시간ㅇ
+
+</script>
+</body>
+</html>

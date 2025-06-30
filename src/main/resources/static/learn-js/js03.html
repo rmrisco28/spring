@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 함수 1 : named
+    function action1() {
+        console.log("이름 있는 함수");
+    }
+
+    // 함수 2 : anonymous
+    const bfunc = function () {
+        console.log("이름 없는 함수");
+    }
+
+    // 함수 3 : arrow function
+    const cfunc = () => {
+        console.log("arrow function")
+    };
+
+    // 함수는 값
+    // 변수에 할당 대입 가능
+
+    // 함수 실행
+    // afunc();
+    action1();
+    // 이름 있는 함수는 변수에 할당하는 경우가 많이 없다.
+    // action();
+    bfunc();
+    cfunc();
+
+    const xfunc = action1;
+    const yfunc = bfunc;
+    const zfunc = cfunc; // 소괄호를 붙일 경우, 함수를 실행
+
+    xfunc();
+    yfunc();
+    zfunc();
+</script>
+</body>
+</html>

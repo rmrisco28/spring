@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // setTimeout(): 나중에 특정 시간이후에 실행되는 함수를 받음
+    setTimeout(() => {
+        console.log("실행")
+    }, 1000); // 1초 후에 실행 받는다.
+    console.log("code 6")
+
+    // promise: 특정 함수가 실행된 이후에 실행될 함수를 처리.
+    new Promise(resolve => {
+        setTimeout(() => {
+            resolve(100);
+        }, 3000);
+    }).then(res => console.log(res));
+    console.log("code 7");
+    console.log("code 8");
+
+    // promise에 에서 오류가 났을 때 catch 실행
+    new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject(100);
+        }, 3000);
+    }).then(res => console.log("성공"))
+        .catch((err) => console.log("에러"))
+</script>
+</body>
+</html>

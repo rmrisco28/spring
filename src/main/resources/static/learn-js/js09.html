@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    // 배열
+    const a = [3, 5, 7 - 9, -1, 2];
+    const b = a;
+    b[0] = -3;
+    console.log(b);
+    console.log(a); // a의 값도 바뀐다.
+    // react 에서는 이런 일이 발생하면 안된다.
+
+    // 같은 값을 가진 새 배열로 복사
+    const c = a.map(e => e); // 잘 안씀
+    c[0] = 33;
+    console.log(c);
+    console.log(a);
+
+    // slice(); 잘 안씀. 가아끔 보인다.
+    const d = a.slice(0, a.length);
+    d[0] = 333;
+    console.log(d);
+    console.log(a);
+
+    // for : 이것도 잘 안씀.
+    const e = [];
+    for (const item of a) {
+        e.push(item);
+    }
+    e[0] = 3333;
+    console.log(e);
+    console.log(a);
+
+    // spread 연산자: ...
+    // 자주 사용
+    [...a]; // [-3, 5, 7, -9, -1, 2]
+    const f = [...a];
+    f[0] = -33;
+    console.log(f);
+    console.log(a);
+
+    //
+    const g = [6, 7, 8];
+    const h = [...g]; // 6, 7, 8
+    const i = [...g, 1]; // 6, 7, 8, 1
+    const j = [2, ...g]; // 2, 6, 7, 8
+    // spread 땅콩잼
+    console.log(g);
+    console.log(h);
+    console.log(i);
+    console.log(j);
+
+    // 연습
+    const k = ["css", "react", "vue"];
+    const l = [...k];
+    const m = ["java", ...k];
+    const n = [...k, "spring"];
+    console.log(l); // css, react, vue
+    console.log(m); // java css, react, vue
+    console.log(n); // css, react, vue, spring
+
+</script>
+</body>
+</html>

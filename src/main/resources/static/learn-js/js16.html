@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 함수 파라미터에서 자주 보이는 분해할당
+
+    // 분해할당과 함수 파라미터
+    function action1(param) {
+        const name = param.name;
+        const address = param.address;
+
+        console.log(name);
+        console.log(address);
+    }
+
+    function action2({name, address}) {
+        console.log(name);
+        console.log(address);
+    }
+
+    function action3({name, address = "jeju"}) {
+        console.log(name);
+        console.log(address);
+    }
+
+    action1({name: "son", address: "seoul"});
+    action1({name: "kim", address: "kullan"});
+
+    action2({name: "tai", address: "seoul"});
+    action2({name: "taoba", address: "busan"});
+
+    action3({name: "lee", address: "dokdo"})
+    action3({name: "park"});
+
+    //  연습
+    // action4 함수 완성
+    function action4({score = 0, skill}) {
+        console.log(score);
+        console.log(skill);
+    }
+
+    action4({score: 33, skill: "java"}); // 33, java 출력
+    action4({skill: "react"}); // 0, react 출력
+
+    // 응용
+    const a = {score: 99, skill: "spring"};
+    action4(a);
+
+
+</script>
+</body>
+</html>

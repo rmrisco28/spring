@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const a = [5, 3, 1, 9, -7, -5];
+
+    // 배열 메소드
+    // filter는 제공된 함수에
+    // 각 원소를 넣어서 true를 리턴한 것만 모은 배열을 리턴
+    const b = a.filter(e => {
+        return true;
+    });
+    // e 자리에 위 함수를 하나씩 넣고, 그 값이 true 면
+    // 그 리턴 받은 값을 b에 넣는다.
+    console.log(b);
+    b[0] = 10;
+    console.log(a);
+    console.log(b);
+
+    const c = a.filter(e => {
+        return false;
+    })
+    console.log(c);
+    console.log(a);
+
+    // const d = a.filter(e => {
+    //     return e > 0;
+    // });
+    const d = a.filter(e => e > 0);
+    console.log(d)
+
+    // 연습
+    const e = a.filter(e => e < 0); // 적절한 filter 메소드 사용
+    console.log(e); // [-7, -5]
+
+
+    // map: 각 원소를 제공된 함수에 넣은 결과를 모은 배열 리턴
+    const f = ["java", "python", "react", "vue"];
+    const g = f.map((e) => {
+        return "hello";
+    });
+
+    console.log(g);
+    const h = f.map((e) => {
+        return e;
+    });
+    console.log(h)
+    h[0] = "css";
+    // map은 다른 참조값을 갖는다.
+    console.log(h);
+    console.log(f);
+
+    const i = f.map(e => `hello ${e}`);
+    console.log(i);
+
+    const j = f.map(e => e.length);
+    console.log(j)
+
+    // 연습
+    const k = [5, 7, 1, 0, -2, -1, 9];
+    const l = k.map(e => e * e); // {} 내에 코드 작성
+    console.log(l); // [25,49,1,0,4,1,81]
+
+</script>
+</body>
+</html>

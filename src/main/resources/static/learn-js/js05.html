@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // string 불변
+    const a = "hello javascript";
+
+    // 부분 문자열
+    const b = a.substring(6, 10);
+    console.log(b);
+    // 부분 교체?
+    const c = a.replaceAll("java", "python")
+    console.log(c);
+
+    // string 불변
+    // a의 문자열을 뽑아와도, a의 값은 변하지 않는다.
+    console.log(a);
+</script>
+</body>
+</html>

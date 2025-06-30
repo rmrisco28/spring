@@ -74,7 +74,7 @@ public class Controller15 {
         model.addAttribute("customersList", list);
 
 
-        return "main15/sub1";
+        return "main15/sub14";
     }
 
     // 연습

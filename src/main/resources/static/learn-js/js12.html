@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 객체 복사
+    // 얕은 복사
+    const a = {
+        name: "son", age: 44,
+        address: {
+            city: "london",
+            country: "uk"
+        }
+    };
+    const b = {...a};
+    console.log(b);
+    b.name = "kim";
+    console.log(b);
+
+    b.address.city = "seoul";
+    console.log(b)
+    console.log(a) // seoul 두개는 동일하다.
+
+    // 깊은 복사
+    const c = {
+        name: "kim",
+        address: {
+            city: "seoul",
+            country: "korea"
+        }
+    };
+
+    // spread 연산자: 가끔 씀
+    const d = {...c, address: {...c.address}}
+    d.address.city = "jeju";
+    console.log(c);
+
+    // JSON 변경 -> 파싱
+    // 자주 씀
+    const e = JSON.parse(JSON.stringify(c));
+    e.address.city = "dokdo";
+    console.log(c)
+
+    // structuredClone() : 현재는 자주 안쓰임(brand now)
+    // 앞으로 자주 쓸 예정
+    const f = structuredClone(c);
+    f.address.city = "busan";
+    console.log(f);
+    console.log(c);
+
+    // 연습
+    const g = {
+        score: {
+            math: 99.11,
+            english: 88.22,
+            korean: 77.33
+        },
+        classname: "중앙",
+    };
+    // const h = g; // 참조값 복사
+    // const h = {...g};// 얕은 복사
+    const h = structuredClone(g); // 깊은 복사로 바꾸기
+    console.log(h);
+    console.log(g)
+
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    // 객체 복사
+    const a = {name: "son", age: 55, address: "london"};
+    const b = a;
+
+    b.name = "lee";
+    console.log(b);
+    console.log(a);
+
+    // 객체 복사 // 잘 안씀
+    const c = {};
+    c.name = a.name;
+    c.age = a.age;
+    c.address = a.address;
+
+    console.log(c);
+
+    // 객체 복사 // 가끔 씀
+    const d = {name: a.name, age: a.age, address: a.address};
+    console.log(d);
+
+    // spread 연산자로 객체 복사 // 자주 씀
+    // {...a};
+    const e = {...a};
+    console.log(e);
+
+    const f = {...a, city: "seoul"}; // 속성 추가
+    console.log(f);
+
+    const g = {...a, name: "kim"}; // 속성 변경
+    console.log(g);
+    console.log("-------------연습----------------")
+    // 연습
+    const h = {email: "gmail", score: 99.22, city: "seoul"};
+    const i = {...h};
+    const j = {...h, country: "korea"};
+    const k = {...h, score: 88.11};
+
+    console.log(i); // {email: "gmail", score: 99.22, city: "seoul"}
+    console.log(j); // {email: "gmail", score: 99.22, city: "seoul", country: "korea}
+    console.log(k);// {email: "gmail", score: 88.11, city: "seoul"}
+
+
+</script>
+</body>
+</html>
